@@ -1,26 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
 @import "tailwindcss";
 
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f5f4;
+  --on-background: #131313;
+  --surface: #f5f5f4;
+  --surface-container: #e7e5e4;
+  --surface-dim: #e7e5e4;
+  --surface-bright: #ffffff;
+  --surface-container-low: #f0edea;
+  --surface-container-high: #dedbd8;
+  --surface-container-highest: #d6d3d1;
+  --on-surface: #131313;
+  --on-surface-variant: #475a4e;
+  --primary: #003824;
+  --primary-fixed: #00724d;
+  --primary-fixed-dim: #005236;
+  --primary-container: #00ffb2;
+  --on-primary: #ffffff;
+  --on-primary-fixed: #002113;
+  --on-primary-container: #003824;
+  --outline: #5c6f62;
+  --outline-variant: #c2cfc6;
+  --inverse-surface: #1c1b1b;
+  --inverse-on-surface: #e5e2e1;
 }
 
-@theme inline {
+.dark {
+  --background: #131313;
+  --on-background: #e5e2e1;
+  --surface: #131313;
+  --surface-container: #201f1f;
+  --surface-dim: #131313;
+  --surface-bright: #3a3939;
+  --surface-container-low: #1c1b1b;
+  --surface-container-high: #2a2a2a;
+  --surface-container-highest: #353534;
+  --on-surface: #e5e2e1;
+  --on-surface-variant: #b9cbbe;
+  --primary: #f7fff8;
+  --primary-fixed: #47ffb8;
+  --primary-fixed-dim: #00e29d;
+  --primary-container: #00ffb2;
+  --on-primary: #003824;
+  --on-primary-fixed: #002113;
+  --on-primary-container: #00724d;
+  --outline: #83958a;
+  --outline-variant: #3a4a41;
+  --inverse-surface: #e5e2e1;
+  --inverse-on-surface: #313030;
+}
+
+@theme {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-on-background: var(--on-background);
+  --color-surface: var(--surface);
+  --color-surface-container: var(--surface-container);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-primary: var(--primary);
+  --color-primary-fixed: var(--primary-fixed);
+  --color-primary-fixed-dim: var(--primary-fixed-dim);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary: var(--on-primary);
+  --color-on-primary-fixed: var(--on-primary-fixed);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-inverse-surface: var(--inverse-surface);
+  --color-inverse-on-surface: var(--inverse-on-surface);
+  
+  --spacing-margin-mobile: 20px;
+  --spacing-margin-desktop: 64px;
+  --spacing-container-max: 1200px;
+  --spacing-gutter: 24px;
+  --spacing-unit: 8px;
+
+  --font-display: "JetBrains Mono", monospace;
+  --font-headline-lg: "JetBrains Mono", monospace;
+  --font-headline-lg-mobile: "JetBrains Mono", monospace;
+  --font-body-lg: "Hanken Grotesk", sans-serif;
+  --font-body-md: "Hanken Grotesk", sans-serif;
+  --font-label-sm: "JetBrains Mono", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Blueprint Grid Texture */
+.bg-technical-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(131, 149, 138, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(131, 149, 138, 0.04) 1px, transparent 1px);
+}
+
+.dark .bg-technical-grid {
+  background-image: 
+    linear-gradient(to right, rgba(131, 149, 138, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(131, 149, 138, 0.07) 1px, transparent 1px);
+}
+
+/* Scanline Overlay */
+.scanlines {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.08) 50%);
+  background-size: 100% 4px;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.dark .scanlines {
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.15) 50%);
+  opacity: 0.5;
+}
+
+/* Terminal Cursor Animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Sudden Invert Hover for Primary Buttons */
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* CTA Fill Transition */
+.btn-cta {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+.btn-cta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: var(--primary-container);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+.btn-cta:hover::before {
+  left: 0;
+}
+.btn-cta:hover {
+  color: var(--on-primary-fixed);
+}
+
+/* Nav Link Underline Draw-on */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0; height: 2px;
+  bottom: -4px; left: 0;
+  background-color: var(--primary-fixed);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
+  font-family: var(--font-body-md);
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--on-background);
 }
+
+/* Navigation Drawer Background with high-contrast fallback */
+.bg-nav-drawer {
+  background-color: rgba(245, 245, 244, 0.96);
+}
+.dark .bg-nav-drawer {
+  background-color: rgba(19, 19, 19, 0.98);
+}
+
