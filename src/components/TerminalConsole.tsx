@@ -10,7 +10,7 @@ interface HistoryItem {
 
 const WELCOME_LOGS: HistoryItem[] = [
   { type: "output", text: "SYSTEM BOOT SUCCESSFUL. CONNECTING TO HOST..." },
-  { type: "output", text: "WELCOME TO PRANAV GUPTA'S TECHNICAL PORTFOLIO CONSOLE [v1.0.2]." },
+  { type: "output", text: "WELCOME TO PRANAV GUPTA'S TECHNICAL PORTFOLIO CONSOLE [v2.0.1]." },
   { type: "output", text: "TYPE 'help' FOR A LIST OF COMPILED SYSTEM COMMANDS." },
   { type: "output", text: "--------------------------------------------------------" },
 ];
