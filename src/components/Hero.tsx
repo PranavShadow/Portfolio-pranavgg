@@ -9,19 +9,15 @@ export default function Hero() {
   const [typingComplete, setTypingComplete] = useState(false);
 
   useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index < nameText.length) {
-        setTypedName((prev) => prev + nameText.charAt(index));
-        index++;
-      } else {
-        clearInterval(interval);
-        setTypingComplete(true);
-      }
-    }, 120);
-
-    return () => clearInterval(interval);
-  }, []);
+    if (typedName.length < nameText.length) {
+      const timeout = setTimeout(() => {
+        setTypedName(nameText.slice(0, typedName.length + 1));
+      }, 120);
+      return () => clearTimeout(timeout);
+    } else {
+      setTypingComplete(true);
+    }
+  }, [typedName]);
 
   return (
     <section className="flex flex-col justify-center min-h-[614px] gap-6 reveal active" id="hero">

@@ -3,7 +3,21 @@
 import { Code, Download, ExternalLink } from "lucide-react";
 import React from "react";
 
-const PROJECTS = [
+interface Project {
+  title: string;
+  status: string;
+  statusColor: string;
+  description: string;
+  tags: string[];
+  links: {
+    label: string;
+    icon: React.ReactNode;
+    url: string;
+  }[];
+  fullWidth?: boolean;
+}
+
+const PROJECTS: Project[] = [
   {
     title: "Imagify",
     status: "[DEPLOYED]",
