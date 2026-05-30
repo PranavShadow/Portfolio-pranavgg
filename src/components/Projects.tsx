@@ -35,12 +35,39 @@ const PROJECTS = [
     description:
       "A 2D arcade-style game demonstrating core computer science concepts. Implements pixel-level collision detection, responsive keyboard event handling, and complex game state management loops without relying on heavy game engines.",
     tags: ["Python", "Turtle", "Tkinter"],
-    fullWidth: true,
     links: [
       { label: "Source", icon: <Code/>, url: "https://github.com/PranavShadow/Climb-Up-the-Hill" },
       { label: "Download", icon: <Download/>, url: "https://pranavshadow.itch.io/pranav-climb-up-the-hill" },
     ],
   },
+    {
+    title: "BloodVision",
+    status: "[Under Development]",
+    statusColor: "text-yellow-400 bg-yellow-400/10 border-yellow-400/30",
+    description:
+      "BloodVision is an AI-powered medical imaging project designed to analyze and classify blood cell images using machine learning and computer vision techniques.",
+    tags: ["Python", "Machine Learning Technique", "Image Processing", "Vanilla"],
+    links: [
+      { label: "Source", icon: <Code/>, url: "https://github.com/PranavShadow/Bloodvision" },
+      { label: "Download", icon: <ExternalLink/>, url: "https://pranavshadow.github.io/Bloodvision/" },
+    ],
+  },
+
+  // for full width project
+
+  //   {
+  //   title: "Climb Up the Hill",
+  //   status: "[EXECUTABLE]",
+  //   statusColor: "text-primary-fixed bg-primary-fixed/10 border-primary-fixed/30",
+  //   description:
+  //     "A 2D arcade-style game demonstrating core computer science concepts. Implements pixel-level collision detection, responsive keyboard event handling, and complex game state management loops without relying on heavy game engines.",
+  //   tags: ["Python", "Turtle", "Tkinter"],
+  //   fullWidth: true,
+  //   links: [
+  //     { label: "Source", icon: <Code/>, url: "https://github.com/PranavShadow/Climb-Up-the-Hill" },
+  //     { label: "Download", icon: <Download/>, url: "https://pranavshadow.itch.io/pranav-climb-up-the-hill" },
+  //   ],
+  // },
 ];
 
 export default function Projects() {
