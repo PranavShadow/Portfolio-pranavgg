@@ -56,7 +56,7 @@ const PROJECTS: Project[] = [
   },
     {
     title: "BloodVision",
-    status: "[Under Development]",
+    status: "[In Development]",
     statusColor: "text-yellow-400 bg-yellow-400/10 border-yellow-400/30",
     description:
       "BloodVision is an AI-powered medical imaging project designed to analyze and classify blood cell images using machine learning and computer vision techniques.",
