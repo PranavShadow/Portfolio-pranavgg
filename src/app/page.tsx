@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <div className="bg-background text-on-surface bg-technical-grid min-h-screen flex flex-col relative overflow-x-hidden">
       {/* CRT scanline display filter */}
-      <ScanlineOverlay />
+      {/* <ScanlineOverlay /> */}
 
       {/* Floating interactive terminal console */}
       <TerminalConsole />

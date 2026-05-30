@@ -14,7 +14,7 @@ export default function About() {
           I engineer robust backend architectures and seamless frontend experiences, prioritizing performance and security over decorative elements. My focus is on shipping functional, scalable products using RESTful APIs and secure JWT authentication.
         </p>
         <p className="font-body-lg text-lg md:text-body-lg text-on-surface leading-relaxed">
-          I thrive under pressure, consistently delivering mission-critical features within strict technical constraints. Ownership of the full stack allows me to foresee potential failures and build resilient systems from the ground up.
+          I am Simple, Sensible, Self-driven and I look for exciting advents for my educational voyage.
         </p>
       </div>
     </section>

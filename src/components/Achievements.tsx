@@ -19,8 +19,8 @@ export default function Achievements() {
       <div className="md:col-span-8 bg-surface-container border border-outline-variant p-6 font-label-sm text-on-surface leading-relaxed hover:border-primary-container transition-colors duration-500">
         <div className="space-y-3">
           {SYSTEM_LOGS.map((log, idx) => (
-            <div key={idx} className="flex flex-col sm:flex-row sm:gap-4 items-start">
-              <span className="text-primary-fixed font-bold tracking-widest select-none uppercase shrink-0">
+            <div key={idx} className="flex flex-col sm:flex-row sm:gap-4 items-start gap-5">
+              <span className="text-primary-fixed font-bold tracking-widest select-none uppercase shrink-0 w-40 min-w-[10rem]">
                 {log.type}
               </span>
               <p className="text-on-surface font-body-md text-sm md:text-[15px]">

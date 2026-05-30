@@ -1,7 +1,7 @@
 "use client";
 
 import { usePortfolioTheme } from "@/context/ThemeContext";
-import { Lightbulb, LightbulbOff, SquareChevronRight } from "lucide-react";
+import { Lightbulb, LightbulbOff, Menu, SquareChevronRight, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
 const NAV_ITEMS = [
@@ -57,7 +57,7 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 bg-background/90 backdrop-blur-md border-b border-outline-variant z-50">
         <a
           className="font-display text-headline-lg-mobile md:text-headline-lg font-bold text-on-surface tracking-tighter hover:text-primary-fixed transition-colors duration-300"
-          href="#"
+          href="/"
         >
           PRANAV GUPTA
         </a>
@@ -116,7 +116,7 @@ export default function Navbar() {
             aria-label="Toggle Navigation Menu"
           >
             <span className="material-symbols-outlined align-middle text-[28px]">
-              {mobileMenuOpen ? "close" : "menu"}
+              {mobileMenuOpen ? <X/> : <Menu/>}
             </span>
           </button>
         </div>
