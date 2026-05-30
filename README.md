@@ -25,3 +25,6 @@ A modern, responsive portfolio website showcasing projects, skills, and experien
 
 ## Preview
 
+<img width="1897" height="848" alt="image" src="https://github.com/user-attachments/assets/48e8c201-2ce8-4d69-89b7-6cd50a77e068" />
+<img width="1883" height="916" alt="image" src="https://github.com/user-attachments/assets/26c28b54-c349-4571-a1a2-639780a32aa1" />
+<img width="1895" height="904" alt="image" src="https://github.com/user-attachments/assets/2d47a750-fb14-4844-96ec-505b4ffb00c3" />
