@@ -1,4 +1,4 @@
-# Pranav's Portfolio - pranavgg
+# pranavgg.me
 
 A modern, responsive portfolio website showcasing projects, skills, and experience. Built with Next.js and modern web technologies for optimal performance and user experience.
 
