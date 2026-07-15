@@ -4,7 +4,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { motion, useScroll, useMotionValueEvent } from 'motion/react';
+import { motion } from 'motion/react';
 import { Menu, X, Github, Linkedin, Globe, Coffee, Twitter, ChevronRight, Download } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -27,29 +27,14 @@ const iconMap = {
 export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
-  const [isVisible, setIsVisible] = React.useState(true);
-  const { scrollY } = useScroll();
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() ?? 0;
-    if (latest > previous && latest > 150) {
-      setIsVisible(false);
-    } else {
-      setIsVisible(true);
-    }
-  });
 
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
-      animate={{
-        opacity: 1,
-        y: isVisible ? 0 : -100
-      }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
         duration: 0.6,
         ease: 'easeOut',
-        y: { duration: 0.3, ease: 'easeInOut' }
       }}
       className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
     >
