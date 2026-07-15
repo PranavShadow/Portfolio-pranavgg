@@ -18,7 +18,6 @@ A modern, responsive portfolio website showcasing projects, skills, and experien
 - **Styling**: Tailwind CSS 4.1.12, CSS
 - **Icons**: Lucide React 0.540.0
 - **Animations**: Framer Motion 12.23.12
-- **Authentication**: Better Auth 1.3.32
 
 ### Development Tools
 - **Linting**: ESLint 9.33.0
@@ -28,6 +27,13 @@ A modern, responsive portfolio website showcasing projects, skills, and experien
 
 ## Preview
 
-<img width="1897" height="848" alt="image" src="https://github.com/user-attachments/assets/48e8c201-2ce8-4d69-89b7-6cd50a77e068" />
-<img width="1883" height="916" alt="image" src="https://github.com/user-attachments/assets/26c28b54-c349-4571-a1a2-639780a32aa1" />
-<img width="1895" height="904" alt="image" src="https://github.com/user-attachments/assets/2d47a750-fb14-4844-96ec-505b4ffb00c3" />
+<img width="1907" height="897" alt="image" src="https://github.com/user-attachments/assets/3f6d96c6-043b-428f-8fb4-2d28477f8f56" />
+<img width="1898" height="903" alt="image" src="https://github.com/user-attachments/assets/09e10a03-fc73-4946-8dfd-fc80a180e7c1" />
+<img width="1899" height="905" alt="image" src="https://github.com/user-attachments/assets/9025a118-5020-49e7-baf1-6b97257615c5" />
+<img width="1902" height="901" alt="image" src="https://github.com/user-attachments/assets/aa951044-744d-40ff-a8ae-3419159726b9" />
+<img width="1900" height="914" alt="image" src="https://github.com/user-attachments/assets/a7d6b06f-7802-4f39-9190-f662348f6b8f" />
+<img width="1904" height="915" alt="image" src="https://github.com/user-attachments/assets/32a30be0-6bdb-4f7f-9337-874007e11cea" />
+
+
+
+
