@@ -1,4 +1,4 @@
-import { ActivityData, ActivityWeek, buildMonthLabels } from "./activity-types";
+import { ActivityData, ActivityWeek, buildMonthLabels, buildRecentActivityWeeks } from "./activity-types";
 
 /**
  * Fetches a user's GitHub contribution calendar via the GraphQL API.
@@ -72,19 +72,26 @@ export async function getGithubActivity(username: string): Promise<ActivityData 
             throw new Error("Unexpected GitHub API response shape");
         }
 
-        const weeks: ActivityWeek[] = calendar.weeks.map((week: {
-            contributionDays: { date: string; contributionCount: number; contributionLevel: string }[];
-        }) => ({
-            days: week.contributionDays.map((day) => ({
-                date: day.date,
-                count: day.contributionCount,
-                level: LEVEL_MAP[day.contributionLevel] ?? 0,
-            })),
-        }));
+        const weeks: ActivityWeek[] = buildRecentActivityWeeks(
+            calendar.weeks.map((week: {
+                contributionDays: { date: string; contributionCount: number; contributionLevel: string }[];
+            }) => ({
+                days: week.contributionDays.map((day) => ({
+                    date: day.date,
+                    count: day.contributionCount,
+                    level: LEVEL_MAP[day.contributionLevel] ?? 0,
+                })),
+            }))
+        );
+
+        const totalContributions = weeks.reduce(
+            (sum, week) => sum + week.days.reduce((weekSum, day) => weekSum + day.count, 0),
+            0
+        );
 
         return {
             weeks,
-            totalContributions: calendar.totalContributions,
+            totalContributions,
             monthLabels: buildMonthLabels(weeks),
         };
     } catch (err) {

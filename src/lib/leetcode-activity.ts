@@ -1,4 +1,4 @@
-import { ActivityData, ActivityWeek, buildMonthLabels } from "./activity-types";
+import { ActivityData, ActivityWeek, buildMonthLabels, buildRecentActivityWeeks } from "./activity-types";
 
 /**
  * Fetches a user's LeetCode submission calendar via LeetCode's (unofficial,
@@ -56,8 +56,11 @@ export async function getLeetcodeActivity(username: string): Promise<LeetcodeAct
         }
 
         const submissionMap: Record<string, number> = JSON.parse(calendar.submissionCalendar || "{}");
-        const weeks = buildWeeksFromMap(submissionMap);
-        const totalContributions = Object.values(submissionMap).reduce((a, b) => a + b, 0);
+        const weeks = buildRecentActivityWeeks(buildWeeksFromMap(submissionMap));
+        const totalContributions = weeks.reduce(
+            (sum, week) => sum + week.days.reduce((weekSum, day) => weekSum + day.count, 0),
+            0
+        );
 
         return {
             activity: {
