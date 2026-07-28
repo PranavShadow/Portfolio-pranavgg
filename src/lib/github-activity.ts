@@ -1,4 +1,4 @@
-import { ActivityData, ActivityWeek, buildMonthLabels } from "./activity-types";
+import { ActivityData, ActivityWeek, buildMonthLabels, buildRecentActivityWeeks } from "./activity-types";
 
 /**
  * Fetches a user's GitHub contribution calendar via the GraphQL API.
@@ -17,9 +17,9 @@ const LEVEL_MAP: Record<string, 0 | 1 | 2 | 3 | 4> = {
 };
 
 const QUERY = `
-  query ($login: String!) {
+  query ($login: String!, $from: DateTime!, $to: DateTime!) {
     user(login: $login) {
-      contributionsCollection {
+      contributionsCollection(from: $from, to: $to) {
         contributionCalendar {
           totalContributions
           weeks {
@@ -46,13 +46,24 @@ export async function getGithubActivity(username: string): Promise<ActivityData 
     }
 
     try {
+        const now = new Date();
+        const todayUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+        const fromUTC = new Date(Date.UTC(todayUTC.getUTCFullYear(), todayUTC.getUTCMonth() - 6, todayUTC.getUTCDate()));
+
         const res = await fetch("https://api.github.com/graphql", {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ query: QUERY, variables: { login: username } }),
+            body: JSON.stringify({
+                query: QUERY,
+                variables: {
+                    login: username,
+                    from: fromUTC.toISOString(),
+                    to: todayUTC.toISOString(),
+                },
+            }),
             // Cache for an hour so we don't hammer the API on every request.
             next: { revalidate: 3600 },
         });
@@ -72,19 +83,21 @@ export async function getGithubActivity(username: string): Promise<ActivityData 
             throw new Error("Unexpected GitHub API response shape");
         }
 
-        const weeks: ActivityWeek[] = calendar.weeks.map((week: {
-            contributionDays: { date: string; contributionCount: number; contributionLevel: string }[];
-        }) => ({
-            days: week.contributionDays.map((day) => ({
-                date: day.date,
-                count: day.contributionCount,
-                level: LEVEL_MAP[day.contributionLevel] ?? 0,
-            })),
-        }));
+        const weeks: ActivityWeek[] = buildRecentActivityWeeks(
+            calendar.weeks.map((week: {
+                contributionDays: { date: string; contributionCount: number; contributionLevel: string }[];
+            }) => ({
+                days: week.contributionDays.map((day) => ({
+                    date: day.date,
+                    count: day.contributionCount,
+                    level: LEVEL_MAP[day.contributionLevel] ?? 0,
+                })),
+            }))
+        );
 
         return {
             weeks,
-            totalContributions: calendar.totalContributions,
+            totalContributions: calendar.totalContributions ?? 0,
             monthLabels: buildMonthLabels(weeks),
         };
     } catch (err) {
