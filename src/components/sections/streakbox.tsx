@@ -53,13 +53,13 @@ export async function StreakBoxSection() {
                     </p>
                 </div>
 
-                <div className="flex flex-col gap-6">
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                     <ActivityCalendar
                         title="LeetCode Activity"
                         profileUrl={`https://leetcode.com/${LEETCODE_USERNAME}`}
                         data={leetcode?.activity ?? null}
                         colorScale={LEETCODE_COLORS}
-                        totalLabel="submissions in the last year"
+                        totalLabel="submissions in the last 6 months"
                         streak={
                             leetcode
                                 ? { current: leetcode.currentStreak, totalActiveDays: leetcode.totalActiveDays }
@@ -72,7 +72,7 @@ export async function StreakBoxSection() {
                         profileUrl={`https://github.com/${GITHUB_USERNAME}`}
                         data={github}
                         colorScale={GITHUB_COLORS}
-                        totalLabel="contributions in the last year"
+                        totalLabel="contributions in the last 6 months"
                     />
                 </div>
             </div>
