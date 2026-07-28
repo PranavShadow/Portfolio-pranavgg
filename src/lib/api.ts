@@ -102,26 +102,43 @@ export const getProjects = cache(async (): Promise<GitHubRepo[]> => {
             return [];
         }
 
-        const response = await fetch(
-            `https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=20&type=owner`,
-            {
-                headers: {
-                    'Authorization': `token ${githubToken}`,
-                    'Accept': 'application/vnd.github.v3+json',
-                    'User-Agent': 'Portfolio-App',
-                },
-                next: {
-                    revalidate: 60, // Cache for 60 seconds
-                },
-            }
-        );
+        const repos: GitHubRepo[] = [];
+        let page = 1;
 
-        if (!response.ok) {
-            console.error(`GitHub API responded with status ${response.status}`);
-            return [];
+        while (true) {
+            const response = await fetch(
+                `https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=100&page=${page}&type=owner`,
+                {
+                    headers: {
+                        'Authorization': `token ${githubToken}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'User-Agent': 'Portfolio-App',
+                    },
+                    next: {
+                        revalidate: 60, // Cache for 60 seconds
+                    },
+                }
+            );
+
+            if (!response.ok) {
+                console.error(`GitHub API responded with status ${response.status}`);
+                return [];
+            }
+
+            const pageRepos: GitHubRepo[] = await response.json();
+            if (!Array.isArray(pageRepos) || pageRepos.length === 0) {
+                break;
+            }
+
+            repos.push(...pageRepos);
+
+            if (pageRepos.length < 100) {
+                break;
+            }
+
+            page += 1;
         }
 
-        const repos: GitHubRepo[] = await response.json();
         // Only filter out private repos, keep forks
         const publicRepos = repos
             .filter((repo) => !repo.private)
