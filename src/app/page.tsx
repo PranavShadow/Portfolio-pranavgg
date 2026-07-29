@@ -1,4 +1,5 @@
 import { HeroSection } from '@/components/sections/hero';
+import { HomeTeaserSections } from '@/components/sections/home-teaser-sections';
 import dynamic from 'next/dynamic';
 
 const StreakBoxSection = dynamic(() => import('@/components/sections/streakbox').then(mod => mod.StreakBoxSection));
@@ -8,6 +9,7 @@ export default function Home() {
   return (
     <main className="w-full">
       <HeroSection />
+      <HomeTeaserSections />
       <StreakBoxSection />
       <ExperienceSection />
     </main>
