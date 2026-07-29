@@ -3,8 +3,24 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { siteConfig } from '@/config/site.config';
-import { Github, Linkedin, Twitter, Mail, ArrowUpRight, MessageCircle } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+
+function XIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M18 4h2l-6.3 7.2L20 20h-5.2l-4.1-5.4L5.8 20H4l6.8-7.7L4 4h5.3l3.7 4.9L18 4Z" />
+    </svg>
+  );
+}
 
 const socialLinks = [
   {
@@ -20,14 +36,14 @@ const socialLinks = [
     icon: Linkedin,
   },
   {
-    label: 'Twitter',
+    label: 'X',
     description: 'Follow for updates',
     url: siteConfig.links.twitter,
-    icon: Twitter,
+    icon: XIcon,
   },
   {
     label: 'Email',
-    description: 'Drop me a message',
+    description: 'ompranav2003@gmail.com',
     url: `mailto:${siteConfig.links.email}`,
     icon: Mail,
   },

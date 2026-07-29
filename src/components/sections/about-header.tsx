@@ -1,16 +1,33 @@
 "use client";
 
+import React from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site.config';
+
+function XIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M18 4h2l-6.3 7.2L20 20h-5.2l-4.1-5.4L5.8 20H4l6.8-7.7L4 4h5.3l3.7 4.9L18 4Z" />
+    </svg>
+  );
+}
 
 const iconMap = {
   github: Github,
   linkedin: Linkedin,
-  twitter: Twitter,
+  x: XIcon,
   email: Mail,
 };
 

@@ -152,7 +152,7 @@ export const siteConfig: SiteConfig = {
   social: [
     { label: 'GitHub', url: 'https://github.com/PranavShadow', icon: 'github' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/pranavgg', icon: 'linkedin' },
-    { label: 'Twitter', url: 'https://x.com/pranavvgg', icon: 'twitter' },
+    { label: 'X', url: 'https://x.com/pranavvgg', icon: 'x' },
   ],
   navigation: [
     { label: 'Home', href: '/' },

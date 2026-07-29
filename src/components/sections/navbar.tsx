@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion } from 'motion/react';
-import { Menu, X, Github, Linkedin, Globe, Coffee, Twitter, ChevronRight, Download } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Globe, Coffee, ChevronRight, Download, Network } from 'lucide-react';
 import { toast } from 'sonner';
 
 import { siteConfig } from '@/config/site.config';
@@ -16,12 +16,28 @@ import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import { ThemeToggle } from './theme-toggle';
 
+function XIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M18 4h2l-6.3 7.2L20 20h-5.2l-4.1-5.4L5.8 20H4l6.8-7.7L4 4h5.3l3.7 4.9L18 4Z" />
+    </svg>
+  );
+}
+
 const iconMap = {
   github: Github,
   linkedin: Linkedin,
   globe: Globe,
   coffee: Coffee,
-  twitter: Twitter,
+  x: XIcon,
 };
 
 export function Navbar() {
@@ -111,9 +127,41 @@ export function Navbar() {
               href={siteConfig.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub Profile"
+              aria-label="LinkedIn Profile"
             >
               <Linkedin className="h-4 w-4" />
+            </Link>
+          </Button>
+
+          <Button
+            variant="ghost"
+            size="sm"
+            asChild
+            className="h-8 w-8 p-0"
+          >
+            <Link
+              href={siteConfig.links.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X Profile"
+            >
+              <XIcon className="h-4 w-4" />
+            </Link>
+          </Button>
+
+          <Button
+            variant="ghost"
+            size="sm"
+            asChild
+            className="h-8 w-8 p-0"
+          >
+            <Link
+              href="https://linktr.ee/Pranavgg"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Linktree Profile"
+            >
+              <Network className="h-4 w-4" />
             </Link>
           </Button>
 
