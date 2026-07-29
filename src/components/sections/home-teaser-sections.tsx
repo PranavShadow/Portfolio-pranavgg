@@ -19,35 +19,33 @@ export async function HomeTeaserSections() {
     <section className="mx-auto w-full max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
       <div className="grid gap-6 lg:grid-cols-2">
         <article className="overflow-hidden rounded-[28px] border border-border/60 bg-background/70 p-6 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.35)] backdrop-blur-xl">
-          <div className="flex items-start gap-4">
-            <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border border-border/60 bg-muted/40">
+          <div className="grid gap-6 lg:grid-cols-[220px_1fr] lg:items-start">
+            <div className="relative h-64 w-full overflow-hidden rounded-3xl border border-border/60 bg-muted/40">
               <Image src="/author.jpg" alt="Pranav Gupta" fill className="object-cover" />
             </div>
 
-            <div className="space-y-3">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.38em] text-primary/90">
-                About
-              </p>
-              <h2 className="text-xl font-semibold tracking-tight text-foreground">
-                A short look at who I am
-              </h2>
-              <p className="text-sm leading-7 text-muted-foreground">
-                {aboutIntro}
-              </p>
-            </div>
-          </div>
+            <div className="flex min-h-[256px] flex-col justify-between">
+              <div className="space-y-4">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.38em] text-primary/90">
+                  About
+                </p>
+                <h2 className="text-xl font-semibold tracking-tight text-foreground">
+                  A short look at who I am
+                </h2>
+                <p className="mt-2 text-sm leading-8 text-muted-foreground">
+                  {aboutIntro}
+                </p>
+              </div>
 
-          <div className="mt-6 flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <BookOpenText className="h-4 w-4 text-primary" />
-              Curious about the full story?
+              <div className="mt-6 flex items-center justify-between gap-3">
+                <Button asChild variant="ghost" className="h-10 px-0 text-sm font-medium text-foreground hover:bg-primary/5">
+                  <Link href="/about" className="flex items-center gap-2">
+                    Read complete about
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
-            <Button asChild variant="ghost" className="h-10 px-0 text-sm font-medium text-foreground hover:bg-primary/5">
-              <Link href="/about" className="flex items-center gap-2">
-                Read complete about
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
           </div>
         </article>
 
