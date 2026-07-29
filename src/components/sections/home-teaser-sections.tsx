@@ -38,7 +38,7 @@ export async function HomeTeaserSections() {
               </div>
 
               <div className="mt-6 flex items-center justify-between gap-3">
-                <Button asChild variant="ghost" className="h-10 px-0 text-sm font-medium text-foreground hover:bg-primary/5">
+              <Button asChild variant="outline" className="h-10 rounded-full border-primary/20 bg-background/60 px-5 text-sm font-medium text-foreground hover:bg-primary/5">
                   <Link href="/about" className="flex items-center gap-2">
                     Read complete about
                     <ArrowRight className="h-4 w-4" />
