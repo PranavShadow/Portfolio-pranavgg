@@ -76,7 +76,7 @@ export function AboutContent() {
         </p>
 
         <p className="leading-relaxed">
-          My current flagship project is <a href="https://linkguru.pranavgg.me/" className='text-primary cursor-pointer'>LinkGuru</a>, a full-stack application built from the ground up with a strong focus on product quality and user experience. Alongside personal projects, I'm gradually finding my place in the Open Source community and continuously sharpening my problem-solving skills through LeetCode. I believe great engineering comes from curiosity, consistency, and a willingness to keep learning.
+          My current flagship product is <a href="https://linkguru.pranavgg.me/" className='text-primary cursor-pointer'>LinkGuru</a>, a full-stack application built from the ground up with a strong focus on product quality and user experience. Alongside personal projects, I'm gradually finding my place in the Open Source community and continuously sharpening my problem-solving skills through LeetCode. I believe great engineering comes from curiosity, consistency, and a willingness to keep learning.
         </p>
 
         </section>
