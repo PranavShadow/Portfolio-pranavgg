@@ -8,10 +8,8 @@ import { Button } from '@/components/ui/button';
 import { Announcement, AnnouncementTitle, AnnouncementTag } from '@/components/ui/announcement';
 import { ArrowRight, Zap } from 'lucide-react';
 import { ArrowUpRightIcon } from 'lucide-react';
-import { TypingMotion } from './TypingMotion';
 
 export function HeroSection() {
-  const roles = ["Software Development Engineer", "2D Game Development", "Gen AI Development", "Problem Solving", "Full Stack Development"];
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
@@ -96,7 +94,7 @@ export function HeroSection() {
             </h1>
             <div className="h-8 sm:h-10 md:h-12 overflow-hidden">
               <p className="max-w-3xl text-sm sm:text-lg md:text-xl text-muted-foreground font-medium tracking-wide">
-                <TypingMotion roles={roles} />
+                I am simple, sensible and self-driven.
               </p>
             </div>
           </div>

@@ -45,7 +45,7 @@ export function ActivityCalendar({
                 </div>
 
                 {streak && (
-                    <div className="flex gap-4 text-right">
+                    <div className="hidden sm:flex gap-4 text-right">
                         <div>
                             <p className="text-lg font-semibold text-foreground leading-none">{streak.current}</p>
                             <p className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">
